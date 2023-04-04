@@ -1,0 +1,21 @@
+# Copyright 2023 Canonical Ltd.
+# See LICENSE files for licensing details.
+
+name: storage-libs
+display-name: Storage Libs
+summary: Storage libraries for interacting with charmed filesystems/storage devices.
+description: |
+  This charm provides a set of charm libraries that offer convenience
+  methods for interacting with charmed filesystems and storage devices, but also
+  writing your own filesystem/storage providing or consuming charms using
+  Juju integrations.
+  
+  Important: This charm is not meant to be deployed
+source: https://github.com/canonical/storage-libs
+issues: https://github.com/canonical/storage-libs/issues
+maintainers:
+  - Jason C. Nucciarone <jason.nucciarone@canonical.com>
+tags:
+  - filesystem
+  - storage
+  - hpc
