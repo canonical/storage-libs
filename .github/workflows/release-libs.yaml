@@ -14,6 +14,8 @@ jobs:
 
   release-to-charmhub:
     name: Release latest version of libs to Charmhub
+    needs:
+      - ci-tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
