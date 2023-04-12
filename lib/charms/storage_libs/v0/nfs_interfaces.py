@@ -150,7 +150,7 @@ LIBAPI = 0
 
 # Increment this PATCH version before using `charmcraft publish-lib` or reset
 # to 0 if you are raising the major API version
-LIBPATCH = 1
+LIBPATCH = 2
 
 _logger = logging.getLogger(__name__)
 
@@ -369,7 +369,7 @@ class NFSRequires(_BaseInterface):
             elif type(allowlist) == list:
                 _allowlist = allowlist
             else:
-                _allowlist = None
+                _allowlist = ["0.0.0.0"]
 
             if type(size) == int:
                 _size = size
