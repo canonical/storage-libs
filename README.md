@@ -17,6 +17,7 @@ which offer convenience methods for interacting with filesystems and storage dev
 but also writing your own filesystem/storage providing or requiring Juju operators. Storage Libs hosts the following charm libraries:
 
 - `nfs_interfaces`: Library to manage integrations between NFS providers and consumers.
+- `cephfs_interfaces`: Library to manage integrations between CephFS providers and consumers.
 
 ## Usage
 
