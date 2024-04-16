@@ -59,7 +59,7 @@ Can also be used for pull requests.
 
 * `Type: Idea Bank` - Issues that pertain to proposing potential improvement to storage-libs.
 
-* `Type: Enchancement` - Issues marked as an agreed upon enhancement to storage-libs. Can also be used for pull requests.
+* `Type: Enhancement` - Issues marked as an agreed upon enhancement to storage-libs. Can also be used for pull requests.
 
 * `Statues: Help wanted` - Issues where we need help from the greater storage-libs community to solve.
 
