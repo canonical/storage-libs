@@ -304,5 +304,28 @@ class TestCephFSServerCharm(unittest.TestCase):
         self.assertEqual(stored_share_info, asdict(share_info))
         self.assertEqual(stored_auth_info, asdict(auth_info))
 
+    def test_set_share_twice(self) -> None:
+        """Assert that the auth info can be set multiple times."""
+        share_info = CephFSShareInfo(fsid=FSID, name=NAME, path=PATH, monitor_hosts=MONITOR_HOSTS)
+        auth_info = CephFSAuthInfo(username=USERNAME, key=KEY)
+
+        self.harness.charm.provider.set_share(self.integration_id, share_info, auth_info)
+
+        relation_data = self.harness.get_relation_data(self.integration_id, "cephfs-server")
+        old_auth_id = relation_data["auth"]
+        new_auth_info = CephFSAuthInfo(username="new-user", key=KEY)
+
+        self.harness.charm.provider.set_share(self.integration_id, share_info, new_auth_info)
+
+        relation_data = self.harness.get_relation_data(self.integration_id, "cephfs-server")
+        self.assertEqual(relation_data["auth"], old_auth_id)
+
+        stored_share_info = json.loads(relation_data["share_info"])
+        stored_auth_info = self.harness.charm.model.get_secret(
+            id=relation_data["auth"]
+        ).get_content(refresh=True)
+        self.assertEqual(stored_share_info, asdict(share_info))
+        self.assertEqual(stored_auth_info, asdict(new_auth_info))
+
     def tearDown(self) -> None:
         self.harness.cleanup()
