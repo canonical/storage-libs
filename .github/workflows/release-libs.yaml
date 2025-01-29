@@ -21,7 +21,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Release bumped charm libraries to Charmhub
-        uses: canonical/charming-actions/release-libraries@2.4.0
+        uses: canonical/charming-actions/release-libraries@2.7.0
         with:
           credentials: "${{ secrets.CHARMCRAFT_AUTH }}"
           github-token: "${{ secrets.GITHUB_TOKEN }}"
